@@ -1,9 +1,18 @@
 package ec.edu.ups.dao;
 
-public class DAOFactory {
+public abstract class DAOFactory {
 
-	public DAOFactory() {
-		// TODO Auto-generated constructor stub
+	protected static DAOFactory factory = new JDBCDAOFactory();
+
+	public static DAOFactory getFactory() {
+		return factory;
 	}
 
+	public abstract void createTables();
+
+	public abstract UsuarioDAO getUsuarioDAO();
+
+	public abstract TelefonoDAO getTelefonoDAO();
+
+	
 }
