@@ -26,7 +26,7 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 	public void create(Usuario entity) {
 		// TODO Auto-generated method stub
 		conexionUno.update("INSERT Usuario VALUES ( '" + entity.getCedula() + "', '"
-				+ entity.getNombres() + "','"+entity.getApellidos()+"','"+entity.getCorreo()+"','"+entity.getPassword()+"'   )");
+				+ entity.getNombre() + "','"+entity.getApellido()+"','"+entity.getCorreo()+"','"+entity.getContrasena()+"'   )");
 		
 	}
 	
@@ -45,13 +45,9 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 			System.out.println(">>>WARNING (JDBCUsuarioDAO:read): " + e.getMessage());
 		}
 
-		
-		
 		return usuarioObject;
 	}
 	
-	
-
 	@Override
 	public Usuario read(String id) {
 		// TODO Auto-generated method stub
@@ -65,7 +61,6 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 		} catch (SQLException e) {
 			System.out.println(">>>WARNING (JDBCUsuarioDAO:read): " + e.getMessage());
 		}
-
 		return usuarioObject;
 	}
 
@@ -74,7 +69,7 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 		// TODO Auto-generated method stub
 		
 		conexionUno.update("UPDATE Usuario SET cedula = '" + entity.getCedula()+ "', nombre  = '"
-				+ entity.getNombres() + "'apellido ='"+entity.getApellidos()+ "'correo  ='"+entity.getCorreo()+ "'contrasena ='"+entity.getPassword()+   "' WHERE cedula = " + entity.getCedula());
+				+ entity.getNombre() + "'apellido ='"+entity.getApellido()+ "'correo  ='"+entity.getCorreo()+ "'contrasena ='"+entity.getContrasena()+   "' WHERE cedula = " + entity.getCedula());
 			
 	}
 
@@ -100,7 +95,7 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 		}
 		for(Usuario str : list)
 		{
-		    System.out.println(str.getCedula() +','+ str.getNombres() +','+str.getApellidos()+','+str.getCorreo());
+		    System.out.println(str.getCedula() +','+ str.getNombre() +','+str.getApellido()+','+str.getCorreo());
 		}
 		return list;
 	}

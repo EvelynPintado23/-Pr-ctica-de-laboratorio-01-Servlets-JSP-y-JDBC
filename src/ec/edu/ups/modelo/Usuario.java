@@ -65,11 +65,6 @@ public class Usuario implements Serializable {
 		this.contrasena = contrasena;
 	}
 	
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return "Usuario [cedula =" + cedula + " nombre =   ]";
-	}
-	
+
 
 }

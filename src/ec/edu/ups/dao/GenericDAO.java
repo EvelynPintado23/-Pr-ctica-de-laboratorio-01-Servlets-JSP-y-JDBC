@@ -20,6 +20,7 @@ public interface GenericDAO<T,ID> {
 	public List<T> find();
 	
 	Usuario buscar(String email,String contrasena);
+	
 	List<Contacto> buscarCorreo(String correo);
 	
 }
