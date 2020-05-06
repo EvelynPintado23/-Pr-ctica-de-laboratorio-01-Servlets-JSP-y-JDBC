@@ -3,7 +3,7 @@ CREATE TABLE USUARIO (
     usu_cedula varchar(20) NOT NULL,
     usu_nombre varchar(50) NOT NULL,
     usu_apellido varchar(50) NOT NULL,
-    usu_correo varchar(20) NOT NULL,
+    usu_correo varchar(50) NOT NULL,
     usu_contrasena varchar(255) NOT NULL,
     PRIMARY KEY (usu_codigo),
     UNIQUE KEY usu_cedula (usu_cedula)
@@ -14,7 +14,7 @@ CREATE TABLE TELEFONO (
     tel_numero varchar(20) NOT NULL,
     tel_tipo varchar(50) NOT NULL,
     tel_operadora varchar(50) NOT NULL,
-    tel_usu_cedula int NOT NULL,
+    tel_usu_cedula varchar(20) NOT NULL,
     PRIMARY KEY (tel_codigo),
     FOREIGN KEY (tel_usu_cedula) REFERENCES usuario(usu_cedula)
     ) ENGINE=INNODB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
@@ -22,5 +22,7 @@ CREATE TABLE TELEFONO (
 INSERT INTO USUARIO (usu_codigo, usu_cedula, usu_nombre, usu_apellido, usu_correo, usu_contrasena);
 VALUES (1,'1720171337','Evelyn','Pintado','evelynpintado23@gmail.com','12345');
 
-INSERT INTO TELEFONO (tel_codigo, tel_usu_cedula, tel_numero, tel_tipo, tel_operadora)
-VALUES (1, (SELECT usu_cedula FROM usuario WHERE usu_nombre='Evelyn'),'0939656305','celular','claro');
+INSERT INTO USUARIO VALUES (1,'1720171337','Evelyn','Pintado','evelynpintado23@gmail.com','12345');
+ 
+INSERT INTO TELEFONO (tel_usu_cedula, tel_numero, tel_tipo, tel_operadora)
+VALUES ((SELECT usu_cedula FROM usuario WHERE usu_nombre='Evelyn'),'0939656305','celular','claro');
