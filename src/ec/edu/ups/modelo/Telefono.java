@@ -1,9 +1,71 @@
 package ec.edu.ups.modelo;
 
-public class Telefono {
+import java.io.Serializable;
 
+public class Telefono implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+	public int telf_id;
+	public String id_user ;
+	public String numero;
+	public String tipo;
+	public String operadora;
+	
+	public int getTelf_id() {
+		return telf_id;
+	}
+	public void setTelf_id(int telf_id) {
+		this.telf_id = telf_id;
+	}
+	public String getId_user() {
+		return id_user;
+	}
+	public void setId_user(String id_user) {
+		this.id_user = id_user;
+	}
+	public String getNumero() {
+		return numero;
+	}
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	public String getOperadora() {
+		return operadora;
+	}
+	public void setOperadora(String operadora) {
+		this.operadora = operadora;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 	public Telefono() {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Telefono(int telf_id, String id_user, String numero, String tipo, String operadora) {
+		super();
+		this.telf_id = telf_id;
+		this.id_user = id_user;
+		this.numero = numero;
+		this.tipo = tipo;
+		this.operadora = operadora;
+	}
+	
+	public Telefono( String id_user, String numero, String tipo, String operadora) {
+		super();
+		this.id_user = id_user;
+		this.numero = numero;
+		this.tipo = tipo;
+		this.operadora = operadora;
+	}
+	
+	
 }
