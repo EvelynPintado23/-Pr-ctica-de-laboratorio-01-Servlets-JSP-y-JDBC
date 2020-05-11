@@ -71,8 +71,7 @@ public class Buscar extends HttpServlet {
 				}
 			} else {
 
-			}
-		
+			}	
 
 	}
 
